@@ -1,343 +1,454 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mohammed Nawaz Azim Pawaskar — Computer Engineer & IoT Specialist</title>
-  <meta name="description" content="Computer Engineer with IoT specialization, pursuing an MSc in AI & Machine Learning at BTH. Building intelligent systems spanning IoT, computer vision, and applied ML. Based in Malmö, Sweden." />
-  <meta name="keywords" content="Computer Engineer, IoT, Machine Learning, Deep Learning, Computer Vision, Python, TensorFlow, Malmö, Sweden" />
-  <meta name="author" content="Mohammed Nawaz Azim Pawaskar" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Mohammed Nawaz Azim Pawaskar — Computer Engineer & IoT Specialist" />
-  <meta property="og:description" content="Computer Engineer with IoT specialization, pursuing an MSc in AI & Machine Learning." />
-  <meta property="og:url" content="https://nawazpawaskar.dev/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Mohammed Nawaz Azim Pawaskar — Computer Engineer" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Mohammed Nawaz Azim Pawaskar",
-    "jobTitle": "Computer Engineer & IoT Specialist",
-    "email": "mohammednawaz02@yahoo.com",
-    "telephone": "+46 767 520 501",
-    "address": { "@type": "PostalAddress", "addressLocality": "Malmö", "addressCountry": "SE" },
-    "alumniOf": "Malmö University"
-  }
-  </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nawaz Azim Pawaskar — AI / ML Engineer</title>
+<meta name="description" content="MSc student in AI and Machine Learning at BTH, Sweden. Computer vision, LLM agents and RAG systems. Took a deployed CNN from 14% to 92% real-world accuracy.">
+<meta name="author" content="Nawaz Azim Pawaskar">
+<meta property="og:title" content="Nawaz Azim Pawaskar — AI / ML Engineer">
+<meta property="og:description" content="Computer vision, LLM agents and RAG systems. MSc AI &amp; ML at Blekinge Institute of Technology.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nawazaz.github.io/Portfolio/">
+<meta name="theme-color" content="#05070b">
+<link rel="icon" href="public/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- ==================== NAVIGATION ==================== -->
-  <header id="main-nav">
-    <div class="nav-progress" id="nav-progress"></div>
-    <div class="nav-inner">
-      <a href="#" class="nav-logo" onclick="event.preventDefault(); window.scrollTo({top:0,behavior:'smooth'})">
-        <div class="logo-icon"><span>N</span></div>
-        <span class="logo-text">Nawaz<span class="logo-dot">.</span></span>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ambient layers -->
+<div class="bg" aria-hidden="true">
+  <div class="grid-layer"></div>
+  <div class="orb orb-a" data-par="0.10"></div>
+  <div class="orb orb-b" data-par="-0.16"></div>
+  <div class="orb orb-c" data-par="0.07"></div>
+  <canvas id="stars"></canvas>
+  <div class="noise"></div>
+</div>
+
+<div class="progress" aria-hidden="true"><span id="bar"></span></div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#hero">
+    <span class="brand-mark">N</span>
+    <span class="brand-text">nawaz<span class="dot">.</span></span>
+  </a>
+  <nav class="links" aria-label="Sections">
+    <a href="#work">Work</a>
+    <a href="#journey">Journey</a>
+    <a href="#stack">Stack</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a class="cv-btn" href="assets/Nawaz_CV.pdf" download>
+    <span>CV</span>
+    <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M8 1v9m0 0 3.5-3.5M8 10 4.5 6.5M2 13h12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+
+<main id="main">
+
+<!-- ================================================= HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+
+    <p class="eyebrow reveal">
+      <span class="live"></span>
+      OPEN TO 2027 MASTER THESIS &amp; GRADUATE ROLES
+    </p>
+
+    <h1 class="hero-name">
+      <span class="line" data-par="-0.05"><span class="w reveal">Nawaz</span></span>
+      <span class="line" data-par="-0.10"><span class="w reveal">Azim</span> <span class="w grad reveal">Pawaskar</span></span>
+    </h1>
+
+    <p class="hero-role reveal">AI&nbsp;/&nbsp;ML&nbsp;Engineer</p>
+
+    <p class="hero-copy reveal">
+      MSc student in Artificial Intelligence and Machine Learning at
+      <strong>Blekinge Institute of Technology</strong>, focused on computer vision and
+      LLM applications. I care about the gap between a model that scores well and a model
+      that works once it is deployed.
+    </p>
+
+    <div class="hero-cta reveal">
+      <a class="btn primary" href="#work">
+        See the work
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10m0 0-4-4m4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <nav class="nav-links" id="nav-links">
-        <a href="#about" class="nav-link" data-section="about">About</a>
-        <a href="#projects" class="nav-link" data-section="projects">Projects</a>
-        <a href="#experience" class="nav-link" data-section="experience">Experience</a>
-        <a href="#stack" class="nav-link" data-section="stack">Stack</a>
-        <a href="#education" class="nav-link" data-section="education">Education</a>
-        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
-      </nav>
-      <div class="nav-actions">
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-      </div>
+      <a class="btn ghost" href="assets/Nawaz_CV.pdf" download>Download CV</a>
     </div>
-  </header>
 
-  <!-- Mobile drawer -->
-  <div class="mobile-overlay" id="mobile-overlay"></div>
-  <div class="mobile-drawer" id="mobile-drawer">
-    <button class="drawer-close" id="drawer-close" aria-label="Close menu">&times;</button>
-    <nav class="drawer-nav">
-      <a href="#about" class="drawer-link">About</a>
-      <a href="#projects" class="drawer-link">Projects</a>
-      <a href="#experience" class="drawer-link">Experience</a>
-      <a href="#stack" class="drawer-link">Stack</a>
-      <a href="#education" class="drawer-link">Education</a>
-      <a href="#contact" class="drawer-link">Contact</a>
-    </nav>
+    <ul class="hero-meta reveal">
+      <li><span>BASE</span> Malmö, Sweden</li>
+      <li><span>FOCUS</span> Computer vision · LLM agents</li>
+      <li><span>GRAD</span> 2027</li>
+    </ul>
   </div>
 
-  <!-- Back to top -->
-  <button class="back-to-top" id="back-to-top" aria-label="Back to top">&#8593;</button>
-
-  <main>
-    <!-- ==================== HERO ==================== -->
-    <section class="hero" id="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-orbs">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-      </div>
-      <div class="hero-grid"></div>
-      <canvas id="neural-canvas"></canvas>
-      <div class="hero-content">
-        <div class="badge fade-in">
-          <span class="badge-dot pulse-glow"></span>
-          Available for opportunities · Malmö, Sweden
-        </div>
-        <h1 class="hero-name fade-up">
-          <span>Mohammed</span><br />
-          <span class="text-gradient">Nawaz Azim</span><br />
-          <span>Pawaskar</span>
-        </h1>
-        <p class="hero-tagline fade-up" style="animation-delay:.15s">Computer Engineer · IoT Specialist · MSc AI & Machine Learning</p>
-        <div class="typing-container fade-up" style="animation-delay:.25s">
-          <span class="typing-text" id="typing-text"></span><span class="cursor-blink">|</span>
-        </div>
-        <p class="hero-desc fade-up" style="animation-delay:.35s">Computer Engineer with a specialization in IoT, currently pursuing an MSc in AI & Machine Learning at Blekinge Institute of Technology. I build systems that connect hardware, data, and intelligence — from sensor-level IoT pipelines to computer vision and applied machine learning.</p>
-        <div class="hero-scroll fade-up" style="animation-delay:.4s">
-          <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
-            <span>SCROLL</span>
-            <span class="bounce-arrow">↓</span>
-          </button>
-        </div>
-        <div class="hero-btns fade-up" style="animation-delay:.48s">
-          <button class="btn-primary gradient-border-btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">Explore Projects</button>
-          <a href="assets/Nawaz_CV.pdf" download class="btn-outline"> ⬇ Download CV</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== METRICS ==================== -->
-    <div class="section-divider"></div>
-    <section class="section metrics-section">
-      <div class="content-max">
-        <div class="section-header reveal">
-          <p class="section-label">By the Numbers</p>
-          <h2>Key Metrics Across<br /><span class="text-gradient">Applied Projects</span></h2>
-          <p class="section-sub">A snapshot of measurable outcomes from machine learning and engineering work.</p>
-        </div>
-        <div class="metrics-grid">
-          <div class="metric-card reveal" data-count="49000" data-suffix="+" style="--accent:hsl(217 91% 60%)"><span class="metric-value">0+</span><div class="metric-label">Tweets Analyzed</div><div class="metric-desc">Social sentiment data processed for cryptocurrency market signal extraction</div></div>
-          <div class="metric-card reveal" data-count="23" data-suffix="+" style="--accent:hsl(265 80% 65%)"><span class="metric-value">0+</span><div class="metric-label">Engineered Features</div><div class="metric-desc">Custom financial and temporal features built with leakage-safe data splitting</div></div>
-          <div class="metric-card reveal" data-count="18000" data-suffix="+" style="--accent:hsl(190 90% 55%)"><span class="metric-value">0+</span><div class="metric-label">Training Images</div><div class="metric-desc">Plant disease images processed through a targeted augmentation pipeline</div></div>
-          <div class="metric-card reveal" data-count="92" data-suffix="%" style="--accent:hsl(130 60% 50%)"><span class="metric-value">0%</span><div class="metric-label">Field Detection Accuracy</div><div class="metric-desc">Real-world plant disease detection after augmentation and retraining from a 14% baseline</div></div>
-          <div class="metric-card reveal" data-count="62" data-suffix="%" style="--accent:hsl(217 91% 60%)"><span class="metric-value">0%</span><div class="metric-label">Crypto Test Accuracy</div><div class="metric-desc">Best-performing model result under highly volatile market conditions</div></div>
-          <div class="metric-card reveal" data-count="5" data-suffix="" style="--accent:hsl(265 80% 65%)"><span class="metric-value">0</span><div class="metric-label">ML Models Evaluated</div><div class="metric-desc">Compared on identical held-out windows: LSTM, GRU, Prophet, XGBoost, and ensemble</div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== ABOUT ==================== -->
-    <div class="section-divider"></div>
-    <section id="about" class="section about-section">
-      <div class="content-max">
-        <div class="about-grid">
-          <div class="reveal">
-            <p class="section-label">About</p>
-            <h2>From IoT Engineering<br /><span class="text-gradient">to Applied AI</span></h2>
-            <div class="about-text">
-              <p>My engineering path started with hardware, not machine learning. Designing embedded IoT systems gave me an applied understanding of how data is generated — how sensor drift, network latency, and physical environment affect what gets recorded. <strong>That context shapes how I approach modeling: data quality and pipeline integrity come before architecture decisions.</strong></p>
-              <p>I completed a BSc in Computer Science Engineering with an IoT focus at Kristianstad University, and I am currently pursuing an MSc in Artificial Intelligence & Machine Learning at Blekinge Institute of Technology (BTH). The Master's program is focused on deepening theoretical foundations in <strong>machine learning, statistical modeling, and system evaluation</strong>.</p>
-              <p>Across my projects, I have analyzed 49,000+ tweets to extract market sentiment signals, engineered 23+ features across financial instruments, and trained CNNs on 18,000+ images — improving real-world plant disease detection from a 14% baseline to 92% through targeted data augmentation and retraining.</p>
-              <p>My current focus is on applying machine learning rigorously: building systems that are well-evaluated, interpretable where needed, and designed with deployment constraints in mind from the start.</p>
-            </div>
-          </div>
-          <div class="reveal about-visual">
-            <div class="orbit-visual" id="orbit-visual">
-              <div class="orbit-ring orbit-ring-1"></div>
-              <div class="orbit-ring orbit-ring-2"></div>
-              <div class="orbit-ring orbit-ring-3"></div>
-              <div class="orbit-center"><div class="orbit-label">AI</div><div class="orbit-sub">Engineer</div></div>
-              <div class="orbit-dot" style="--angle:0deg">ML</div>
-              <div class="orbit-dot" style="--angle:72deg">IoT</div>
-              <div class="orbit-dot" style="--angle:144deg">CV</div>
-              <div class="orbit-dot" style="--angle:216deg">NLP</div>
-              <div class="orbit-dot" style="--angle:288deg">Data</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== PROJECTS ==================== -->
-    <div class="section-divider"></div>
-    <section id="projects" class="section">
-      <div class="content-max">
-        <div class="section-header reveal">
-          <p class="section-label">Projects</p>
-          <h2>Applied Projects &<br /><span class="text-gradient">Case Studies</span></h2>
-          <p class="section-sub">A selection of projects covering machine learning, computer vision, mobile development, and hardware integration.</p>
-        </div>
-        <div class="projects-grid" id="projects-grid"></div>
-      </div>
-    </section>
-
-    <!-- ==================== EXPERIENCE ==================== -->
-    <div class="section-divider"></div>
-    <section id="experience" class="section">
-      <div class="content-max">
-        <div class="section-header reveal">
-          <p class="section-label">Experience</p>
-          <h2>Applied Work &<br /><span class="text-gradient">Industry Experience</span></h2>
-        </div>
-        <div class="exp-card reveal">
-          <div class="exp-accent-line"></div>
-          <div class="exp-inner">
-            <div class="exp-header">
-              <div class="exp-icon">🏢</div>
-              <div>
-                <h3>Data & Sustainability Analyst Intern</h3>
-                <p class="exp-company">Sustainalink ↗</p>
-              </div>
-              <span class="exp-date">📅 Mar 2025 – Apr 2025</span>
-            </div>
-            <div class="exp-body">
-              <p>During the internship, I focused on food waste reduction analysis within Sustainalink's sustainability operations. The core task involved examining <strong>500+ surplus frozen meals</strong> to identify recurring spoilage patterns and understand the conditions driving waste at the source.</p>
-              <div class="exp-more" id="exp-more">
-                <p>Through structured data analysis, I identified key spoilage trends and developed <strong>three circular reuse solutions</strong> aimed at reducing unnecessary disposal and improving resource efficiency.</p>
-                <p>I also contributed to B2B communication strategy by preparing a structured outreach plan targeting <strong>15+ potential partners</strong>, translating the analytical findings into clear, actionable proposals.</p>
-              </div>
-              <button class="read-more-btn" onclick="toggleExpMore()">Read more →</button>
-            </div>
-            <div class="exp-outcomes">
-              <div class="outcome"><span class="outcome-val">500+</span><span class="outcome-label">Meals Analyzed</span><span class="outcome-desc">Surplus frozen meals examined for spoilage patterns</span></div>
-              <div class="outcome"><span class="outcome-val">3</span><span class="outcome-label">Reuse Solutions</span><span class="outcome-desc">Circular strategies developed to reduce food waste</span></div>
-              <div class="outcome"><span class="outcome-val">15+</span><span class="outcome-label">Partners Targeted</span><span class="outcome-desc">B2B communication plan for supplier outreach</span></div>
-            </div>
-            <!-- Experience photos -->
-            <div class="exp-photos">
-              <p class="exp-photos-label">Photos</p>
-              <div class="exp-photos-grid">
-                <div class="exp-photo-item" onclick="openLightbox('assets/sustainalink-1.jpg','')">
-                  <img src="assets/sustainalink-1.jpg" alt="Sustainalink internship" loading="lazy" onerror="this.closest('.exp-photo-item').style.display='none'">
-                </div>
-                <div class="exp-photo-item" onclick="openLightbox('assets/sustainalink-2.jpg','')">
-                  <img src="assets/sustainalink-2.jpg" alt="Sustainalink internship" loading="lazy" onerror="this.closest('.exp-photo-item').style.display='none'">
-                </div>
-                <div class="exp-photo-item" onclick="openLightbox('assets/sustainalink-3.jpg','')">
-                  <img src="assets/sustainalink-3.jpg" alt="Sustainalink internship" loading="lazy" onerror="this.closest('.exp-photo-item').style.display='none'">
-                </div>
-              </div>
-              <a href="assets/Sustainalink_Report.pdf" download class="project-report-btn" style="margin-top:1rem">⬇ Download Report</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== TECH STACK ==================== -->
-    <div class="section-divider"></div>
-    <section id="stack" class="section">
-      <div class="content-max">
-        <div class="section-header reveal">
-          <p class="section-label">Tech Stack</p>
-          <h2>Tools &<br /><span class="text-gradient">Technologies</span></h2>
-          <p class="section-sub">Languages, frameworks, and platforms used across academic projects and applied engineering work.</p>
-        </div>
-        <div class="stack-categories" id="stack-categories"></div>
-      </div>
-    </section>
-
-    <!-- ==================== EDUCATION ==================== -->
-    <div class="section-divider"></div>
-    <section id="education" class="section">
-      <div class="content-max">
-        <div class="section-header reveal">
-          <p class="section-label">Education</p>
-          <h2>Academic<br /><span class="text-gradient">Foundation</span></h2>
-          <p class="section-sub">A progressive academic journey from applied IoT engineering to postgraduate AI research.</p>
-        </div>
-        <div class="edu-timeline" id="edu-timeline"></div>
-      </div>
-    </section>
-
-    <!-- ==================== CONTACT ==================== -->
-    <div class="section-divider"></div>
-    <section id="contact" class="section contact-section">
-      <div class="content-max">
-        <div class="section-header reveal">
-          <div class="badge" style="margin-bottom:1.25rem">✨ Contact</div>
-          <h2>Let's Build Something<br /><span class="text-gradient">Intelligent</span></h2>
-          <p class="section-sub">Open to AI engineering roles, research collaborations, and impactful projects that push the frontier of intelligent systems.</p>
-        </div>
-        <div class="contact-grid">
-          <div class="contact-form-wrap reveal glass-card">
-            <div class="accent-top-line"></div>
-            <form id="contact-form">
-              <div class="form-row">
-                <div class="form-group"><label>Name</label><input type="text" placeholder="Your name" required /></div>
-                <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" required /></div>
-              </div>
-              <div class="form-group"><label>Message</label><textarea placeholder="Tell me about the project or opportunity..." required rows="5"></textarea></div>
-              <button type="submit" class="btn-submit">✉ Send Message</button>
-            </form>
-            <div class="form-success" id="form-success">
-              <div class="success-icon">✓</div>
-              <p><strong>Message sent!</strong></p>
-              <p class="muted">I'll get back to you soon.</p>
-            </div>
-          </div>
-          <div class="contact-info reveal">
-            <a href="mailto:mohammednawaz02@yahoo.com" class="contact-card glass-card">
-              <div class="contact-icon" style="--c:hsl(217 91% 60%)">✉</div>
-              <div><p class="contact-label">Email</p><p class="contact-val">mohammednawaz02@yahoo.com</p></div>
-            </a>
-            <a href="tel:+46767520501" class="contact-card glass-card">
-              <div class="contact-icon" style="--c:hsl(265 80% 65%)">📞</div>
-              <div><p class="contact-label">Phone</p><p class="contact-val">+46 767 520 501</p></div>
-            </a>
-            <div class="contact-card glass-card">
-              <div class="contact-icon" style="--c:hsl(190 90% 55%)">📍</div>
-              <div><p class="contact-label">Location</p><p class="contact-val">Malmö, Sweden</p></div>
-            </div>
-            <div class="social-links">
-              <a href="https://www.linkedin.com/in/mohammed-nawaz-pawaskar/" target="_blank" rel="noopener noreferrer" class="social-link glass-card">🔗 LinkedIn</a>
-              <a href="https://github.com/Nawazaz" target="_blank" rel="noopener noreferrer" class="social-link glass-card">💻 GitHub</a>
-            </div>
-            <div class="contact-quote glass-card" style="display:none"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ==================== LIGHTBOX ==================== -->
-  <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
-    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-    <div class="lightbox-content" onclick="event.stopPropagation()">
-      <img id="lightbox-img" src="" alt="" />
-      <p id="lightbox-caption"></p>
+  <!-- parallax core -->
+  <div class="core" data-par="0.22" aria-hidden="true">
+    <div class="ring r1"></div>
+    <div class="ring r2"></div>
+    <div class="ring r3"></div>
+    <div class="core-dot">
+      <svg viewBox="0 0 40 60" width="34" height="50"><path d="M24 2 6 34h11L14 58l20-32H22z" fill="url(#bolt)"/><defs><linearGradient id="bolt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22e8ff"/><stop offset="1" stop-color="#8b5cff"/></linearGradient></defs></svg>
     </div>
   </div>
 
-  <!-- ==================== FOOTER ==================== -->
-  <footer>
-    <div class="footer-glow"></div>
-    <div class="footer-line"></div>
-    <div class="content-max footer-inner">
-      <div class="footer-brand">
-        <div class="logo-icon"><span>N</span></div>
-        <span class="logo-text">Nawaz Pawaskar</span>
-        <p class="footer-quote">"Engineering intelligent systems with measurable impact."</p>
-      </div>
-      <nav class="footer-nav">
-        <a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a>
-        <a href="#stack">Stack</a><a href="#education">Education</a><a href="#contact">Contact</a>
-      </nav>
-      <p class="copyright">© 2026 Mohammed Nawaz Azim Pawaskar</p>
-    </div>
-  </footer>
+  <div class="scroll-hint" aria-hidden="true"><span></span>SCROLL</div>
+</section>
 
-  <script src="script.js"></script>
+<!-- ================================================= METRICS -->
+<section class="metrics" aria-label="Key results">
+  <div class="wrap">
+    <div class="m-grid">
+      <article class="metric reveal">
+        <div class="m-val"><span class="count" data-from="14" data-to="92" data-suffix="%">14%</span></div>
+        <h3>Real-world accuracy</h3>
+        <p>Diagnosed a lab-to-deployment gap and retrained on camera-captured data.</p>
+      </article>
+      <article class="metric reveal">
+        <div class="m-val"><span class="count" data-to="18000" data-suffix="+">18,000+</span></div>
+        <h3>Training images</h3>
+        <p>CNN plant-disease classifier, validated on 4,500+ held-out images.</p>
+      </article>
+      <article class="metric reveal">
+        <div class="m-val"><span class="count" data-to="95" data-suffix="%">95%</span></div>
+        <h3>Validation accuracy</h3>
+        <p>Reached on the thesis classifier before the deployment work began.</p>
+      </article>
+      <article class="metric reveal">
+        <div class="m-val"><span class="count" data-to="49000" data-suffix="+">49,000+</span></div>
+        <h3>Tweets analysed</h3>
+        <p>VADER sentiment fused with market data for a Bitcoin movement model.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================= ABOUT -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-head">
+      <p class="label reveal">01 — Approach</p>
+      <h2 class="reveal" data-par="0.04">The interesting part<br>is after the benchmark.</h2>
+    </div>
+    <div class="about-body">
+      <p class="reveal">
+        My bachelor's thesis is the thing I keep coming back to. I built a CNN that classified
+        plant disease at <strong>95% validation accuracy</strong> — and in the field, on images
+        the system's own camera took, it was right <strong>14%</strong> of the time.
+      </p>
+      <p class="reveal">
+        The fix was not a bigger model. It was understanding that the training set and the
+        deployment camera were looking at two different worlds. Retraining on 500 images from
+        the deployed camera took it to <strong>92%</strong>.
+      </p>
+      <p class="reveal">
+        That gap is where I like to work. Since then I've built RAG and tool-calling systems in
+        Python, trained models in TensorFlow and PyTorch, and I'm currently developing the
+        historical memory for an autonomous SRE agent that investigates production incidents
+        with <strong>Trafikverket</strong>.
+      </p>
+      <ul class="about-tags reveal">
+        <li>Computer vision</li><li>LLM agents</li><li>RAG</li>
+        <li>Multi-agent systems</li><li>MLOps</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================= WORK -->
+<section class="work" id="work">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="label reveal">02 — Selected work</p>
+      <h2 class="reveal" data-par="0.03">Projects</h2>
+    </header>
+  </div>
+
+  <!-- P1 -->
+  <article class="proj reveal" id="p-plant">
+    <div class="proj-media">
+      <div class="media-frame">
+        <img src="assets/plant-dashboard.jpg" alt="Cloud dashboard for the plant monitoring system showing live sensor readings" data-par="0.12" loading="lazy" width="1600" height="900">
+      </div>
+      <div class="media-badge"><b>14% → 92%</b><span>real-world accuracy</span></div>
+    </div>
+    <div class="proj-body">
+      <p class="proj-tag">Bachelor's thesis · Jan – Jun 2024 · Kristianstad University</p>
+      <h3>AI-Based Plant Monitoring System</h3>
+      <p>An end-to-end IoT system — soil, temperature and light sensors, a camera, automated
+         irrigation and a cloud dashboard — with on-device plant-disease detection.</p>
+      <ul class="bullets">
+        <li>Raised real-world detection accuracy from <b>14% to 92%</b> by diagnosing the
+            lab-to-deployment gap and retraining the CNN on 500 images captured by the deployed camera.</li>
+        <li>Trained the classifier on <b>18,000+ images</b>, validated on 4,500+, reaching 95% validation accuracy.</li>
+        <li>Designed and deployed the full sensing, irrigation and dashboard stack.</li>
+      </ul>
+      <ul class="chips"><li>Python</li><li>TensorFlow</li><li>Keras</li><li>CNN</li><li>IoT</li><li>Azure IoT</li></ul>
+      <div class="proj-links">
+        <a href="https://github.com/Nawazaz/Plant-monitoring-system" target="_blank" rel="noopener">Repository</a>
+        <a href="assets/FinalThesis-Charlton-Pawaskar.pdf" target="_blank" rel="noopener">Read the thesis</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- P2 -->
+  <article class="proj flip reveal" id="p-sre">
+    <div class="proj-media">
+      <div class="media-frame art art-agent">
+        <svg viewBox="0 0 520 320" aria-hidden="true" data-par="0.10">
+          <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22e8ff"/><stop offset="1" stop-color="#8b5cff"/></linearGradient></defs>
+          <g fill="none" stroke="#1d2838"><path d="M0 80h520M0 160h520M0 240h520M130 0v320M260 0v320M390 0v320"/></g>
+          <g class="agent-links" stroke="url(#g1)" stroke-width="1.6" fill="none" opacity=".75">
+            <path d="M260 160 130 80M260 160 390 80M260 160 130 240M260 160 390 240M130 80 390 80M130 240 390 240"/>
+          </g>
+          <g class="agent-nodes">
+            <circle cx="260" cy="160" r="26" fill="#0b0f16" stroke="url(#g1)" stroke-width="2"/>
+            <circle cx="130" cy="80" r="13" fill="#0b0f16" stroke="#22e8ff" stroke-width="1.8"/>
+            <circle cx="390" cy="80" r="13" fill="#0b0f16" stroke="#8b5cff" stroke-width="1.8"/>
+            <circle cx="130" cy="240" r="13" fill="#0b0f16" stroke="#8b5cff" stroke-width="1.8"/>
+            <circle cx="390" cy="240" r="13" fill="#0b0f16" stroke="#22e8ff" stroke-width="1.8"/>
+          </g>
+          <circle class="pulse-dot" r="4" fill="#22e8ff"><animateMotion dur="4s" repeatCount="indefinite" path="M260 160 130 80M130 80 390 240"/></circle>
+        </svg>
+      </div>
+      <div class="media-badge"><b>LIVE</b><span>team project</span></div>
+    </div>
+    <div class="proj-body">
+      <p class="proj-tag">2026 – present · BTH team project with Trafikverket</p>
+      <h3>Autonomous SRE Agent</h3>
+      <p>An AI agent that investigates production incidents across Kubernetes, Grafana,
+         Prometheus and OpenTelemetry — turning raw alerts into structured investigations.</p>
+      <ul class="bullets">
+        <li>Building the Python components that drive the investigation workflow.</li>
+        <li>Implemented alert-payload validation that converts raw Grafana alerts into
+            structured investigation requests for the agent.</li>
+        <li>Developing the agent's historical incident memory, so it avoids repeating
+            mistakes from earlier investigations.</li>
+      </ul>
+      <ul class="chips"><li>Python</li><li>AI Agents</li><li>Kubernetes</li><li>Grafana</li><li>Prometheus</li><li>OpenTelemetry</li></ul>
+    </div>
+  </article>
+
+  <!-- P3 -->
+  <article class="proj reveal" id="p-vsp">
+    <div class="proj-media">
+      <div class="media-frame art art-term">
+        <div class="term" data-par="0.10">
+          <div class="term-bar"><i></i><i></i><i></i><span>virtual-science-park</span></div>
+          <pre><code><span class="c-p">❯</span> agents run --nightly
+<span class="c-m">[profiler]</span>  42 companies profiled
+<span class="c-m">[scout:eu]</span>  18 calls · 6 past deadline <span class="c-r">dropped</span>
+<span class="c-m">[scout:vin]</span> 11 calls matched
+<span class="c-m">[matcher]</span>   137 pairs ranked
+<span class="c-m">[guard]</span>     3 claims blocked <span class="c-r">"guaranteed"</span>
+<span class="c-g">✓</span> quotes verified on source page
+<span class="c-p">❯</span> <span class="cur"></span></code></pre>
+        </div>
+      </div>
+      <div class="media-badge"><b>4 agents</b><span>rule-checked</span></div>
+    </div>
+    <div class="proj-body">
+      <p class="proj-tag">Nov 2026 · BUILD Hackathon · Blue Science Park challenge</p>
+      <h3>Virtual Science Park</h3>
+      <p>A multi-agent app that profiles member companies from public evidence and matches
+         them to funding, events, testbeds and partners, refreshed nightly.</p>
+      <ul class="bullets">
+        <li>Four LLM agents — Profiler, Scouts, Matcher and Guard — pulling from Vinnova and
+            the EU Funding &amp; Tenders portal.</li>
+        <li>Paired every agent with tested rule-based checks: quotes must exist on the source
+            page, past deadlines are removed, and "eligible" or "guaranteed" claims are blocked.</li>
+        <li>Built a local variant that runs entirely on Ollama.</li>
+      </ul>
+      <ul class="chips"><li>TypeScript</li><li>React</li><li>Supabase</li><li>Vitest</li><li>Ollama</li><li>Multi-agent</li></ul>
+    </div>
+  </article>
+
+  <!-- P4 -->
+  <article class="proj flip reveal" id="p-companion">
+    <div class="proj-media">
+      <div class="media-frame art art-mem">
+        <svg viewBox="0 0 520 320" aria-hidden="true" data-par="0.10">
+          <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#22e8ff"/><stop offset="1" stop-color="#8b5cff"/></linearGradient></defs>
+          <g class="mem-rings" fill="none" stroke="url(#g2)" opacity=".5">
+            <circle cx="260" cy="160" r="40" stroke-width="1.5"/>
+            <circle cx="260" cy="160" r="72" stroke-width="1.3" stroke-dasharray="5 9"/>
+            <circle cx="260" cy="160" r="104" stroke-width="1.1" stroke-dasharray="3 13"/>
+            <circle cx="260" cy="160" r="136" stroke-width="1" stroke-dasharray="2 17"/>
+          </g>
+          <g fill="#22e8ff">
+            <circle cx="332" cy="160" r="4"/><circle cx="188" cy="160" r="4"/>
+            <circle cx="260" cy="56" r="3.4" fill="#8b5cff"/><circle cx="364" cy="160" r="3.4" fill="#8b5cff"/>
+            <circle cx="156" cy="160" r="3" fill="#3ddc84"/>
+          </g>
+          <circle cx="260" cy="160" r="22" fill="#0b0f16" stroke="url(#g2)" stroke-width="2"/>
+          <text x="260" y="165" text-anchor="middle" fill="#e9f1f7" font-size="13" font-family="JetBrains Mono, monospace">RAG</text>
+        </svg>
+      </div>
+      <div class="media-badge"><b>Ships as .exe</b><span>PyInstaller</span></div>
+    </div>
+    <div class="proj-body">
+      <p class="proj-tag">Jul 2026 · Personal project</p>
+      <h3>Desktop AI Companion</h3>
+      <p>A desktop LLM agent with long-term memory that survives a restart, plus the ability
+         to actually do things on your machine.</p>
+      <ul class="bullets">
+        <li>Built on the Groq API with <b>ChromaDB-based RAG</b> for memory that persists across sessions.</li>
+        <li>Implemented natural-language tool calling to launch applications and run focus timers.</li>
+        <li>Shipped as a standalone Windows app with PySide6 and PyInstaller.</li>
+      </ul>
+      <ul class="chips"><li>Python</li><li>Groq API</li><li>ChromaDB</li><li>RAG</li><li>PySide6</li><li>PyInstaller</li></ul>
+      <div class="proj-links">
+        <a href="https://github.com/Nawazaz/Desktop-Companion" target="_blank" rel="noopener">Repository</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- P5 + P6 -->
+  <div class="wrap">
+    <div class="duo">
+      <article class="card reveal">
+        <p class="proj-tag">Sep – Dec 2025 · BTH</p>
+        <h3>Bitcoin Price-Movement DSS</h3>
+        <p>Predicted 1-minute Bitcoin price movement from <b>23+ engineered features</b>
+           combining market data with VADER sentiment over 49,000+ tweets, using leakage-safe splits.</p>
+        <p>Compared five models — Linear Regression, Random Forest, XGBoost, SVR and LSTM —
+           with the best reaching ~62% test accuracy.</p>
+        <ul class="chips"><li>scikit-learn</li><li>XGBoost</li><li>LSTM</li><li>VADER</li><li>pandas</li></ul>
+        <div class="proj-links"><a href="assets/Crypto_DSS_Report.pdf" target="_blank" rel="noopener">Read the report</a></div>
+      </article>
+      <article class="card reveal">
+        <p class="proj-tag">2025 – 2026 · BTH</p>
+        <h3>Deep Learning Coursework</h3>
+        <p>Detected anomalies in <b>NASA SMAP &amp; MSL</b> spacecraft telemetry with two LSTM
+           autoencoder architectures, evaluated on precision, recall, F1 and ROC-AUC.</p>
+        <p>Trained a custom CNN and fine-tuned ResNet-50, VGG-19, DenseNet-121 and
+           EfficientNet-B0 on CIFAR-10/100.</p>
+        <ul class="chips"><li>PyTorch</li><li>LSTM autoencoders</li><li>Transfer learning</li><li>CNN</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================= JOURNEY -->
+<section class="journey" id="journey">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="label reveal">03 — Journey</p>
+      <h2 class="reveal" data-par="0.03">Experience &amp; education</h2>
+    </header>
+
+    <div class="tl">
+      <span class="tl-line" aria-hidden="true"><i id="tlFill"></i></span>
+
+      <article class="tl-item reveal">
+        <p class="tl-date">2025 – 2027 (expected)</p>
+        <h3>M.Sc. Artificial Intelligence &amp; Machine Learning</h3>
+        <p class="tl-org">Blekinge Institute of Technology · Sweden</p>
+        <p>Selected courses: Machine Learning (A), Decision Support Systems (A),
+           Deep Machine Learning (B), Advanced Machine Learning.</p>
+      </article>
+
+      <article class="tl-item reveal">
+        <p class="tl-date">Mar – Apr 2025</p>
+        <h3>Data &amp; Sustainability Analyst Intern</h3>
+        <p class="tl-org">Sustainalink · Sweden</p>
+        <p>Analysed 500+ surplus frozen meals to find spoilage patterns and proposed three
+           circular reuse solutions to cut food waste. Built a Power BI dashboard and
+           analysed 15+ supplier partners.</p>
+        <div class="tl-shots">
+          <img src="assets/sustainalink-1.jpg" alt="Sustainalink project material" loading="lazy">
+          <img src="assets/sustainalink-2.jpg" alt="Sustainalink Power BI dashboard" loading="lazy">
+        </div>
+        <div class="proj-links"><a href="assets/Sustainalink_Report.pdf" target="_blank" rel="noopener">Read the report</a></div>
+      </article>
+
+      <article class="tl-item reveal">
+        <p class="tl-date">Graduated 2025</p>
+        <h3>B.Sc. Computer Science Engineering (IoT)</h3>
+        <p class="tl-org">Kristianstad University · Sweden</p>
+        <p>Thesis: AI-based plant monitoring with CNN disease detection.</p>
+      </article>
+
+      <article class="tl-item reveal">
+        <p class="tl-date">Sep – Nov 2023</p>
+        <h3>Android Developer — Industry Project</h3>
+        <p class="tl-org">Combitech &amp; Kristianstad University</p>
+        <p>Developed an Android app integrating Google Maps and Mapbox APIs, improving
+           stability through systematic testing and debugging.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================= STACK -->
+<section class="stack" id="stack">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="label reveal">04 — Toolkit</p>
+      <h2 class="reveal" data-par="0.03">Stack</h2>
+    </header>
+    <div class="stack-grid">
+      <div class="st reveal"><h3>Languages</h3><ul class="chips"><li>Python</li><li>SQL</li><li>TypeScript</li><li>JavaScript</li><li>Java</li><li>C++</li><li>C</li><li>Kotlin</li></ul></div>
+      <div class="st reveal"><h3>Machine learning</h3><ul class="chips"><li>PyTorch</li><li>TensorFlow</li><li>Keras</li><li>scikit-learn</li><li>XGBoost</li><li>CNNs</li><li>LSTMs</li><li>Computer Vision</li><li>NLP</li></ul></div>
+      <div class="st reveal"><h3>LLMs &amp; agents</h3><ul class="chips"><li>RAG</li><li>Multi-agent systems</li><li>ChromaDB</li><li>LangChain</li><li>Groq API</li><li>Ollama</li><li>Tool calling</li></ul></div>
+      <div class="st reveal"><h3>Data</h3><ul class="chips"><li>pandas</li><li>NumPy</li><li>MySQL</li><li>NoSQL</li><li>Power BI</li><li>Jupyter</li></ul></div>
+      <div class="st reveal"><h3>Cloud &amp; MLOps</h3><ul class="chips"><li>Azure</li><li>Azure IoT</li><li>Kubernetes</li><li>Grafana</li><li>Prometheus</li><li>OpenTelemetry</li><li>Git</li></ul></div>
+      <div class="st reveal"><h3>Development</h3><ul class="chips"><li>Flask</li><li>REST APIs</li><li>PySide6</li><li>Android</li><li>React</li><li>Supabase</li></ul></div>
+    </div>
+  </div>
+  <div class="marquee" aria-hidden="true">
+    <div class="mq-track">
+      <span>PYTORCH · TENSORFLOW · RAG · COMPUTER VISION · LLM AGENTS · KUBERNETES · XGBOOST · CHROMADB · OPENTELEMETRY · NLP · SUPABASE · GRAFANA · </span>
+      <span>PYTORCH · TENSORFLOW · RAG · COMPUTER VISION · LLM AGENTS · KUBERNETES · XGBOOST · CHROMADB · OPENTELEMETRY · NLP · SUPABASE · GRAFANA · </span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================= CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="label reveal">05 — Contact</p>
+    <h2 class="reveal big" data-par="0.05">Let's build<br>something that ships.</h2>
+    <p class="contact-copy reveal">
+      I'm looking for a <strong>2027 master thesis</strong> or a graduate role in AI/ML
+      engineering. If you're working on computer vision, LLM systems or anything that has to
+      survive contact with real data, I'd like to hear about it.
+    </p>
+    <div class="contact-links reveal">
+      <a class="c-link" href="mailto:nawazazim02@gmail.com">
+        <span class="c-k">EMAIL</span><span class="c-v">nawazazim02@gmail.com</span>
+      </a>
+      <a class="c-link" href="https://linkedin.com/in/mohammed-nawaz-pawaskar" target="_blank" rel="noopener">
+        <span class="c-k">LINKEDIN</span><span class="c-v">mohammed-nawaz-pawaskar</span>
+      </a>
+      <a class="c-link" href="https://github.com/Nawazaz" target="_blank" rel="noopener">
+        <span class="c-k">GITHUB</span><span class="c-v">@Nawazaz</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p>© <span id="yr">2026</span> Nawaz Azim Pawaskar</p>
+    <p class="foot-note">Built from scratch — no template.</p>
+    <a href="#hero" class="to-top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
