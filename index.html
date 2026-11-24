@@ -178,8 +178,8 @@
   <!-- P1 -->
   <article class="proj reveal" id="p-plant">
     <div class="proj-media">
-      <div class="media-frame">
-        <img src="assets/plant-dashboard.jpg" alt="Cloud dashboard for the plant monitoring system showing live sensor readings" data-par="0.12" loading="lazy" width="1600" height="900">
+      <div class="media-frame tilt">
+        <img src="assets/plant-dashboard.jpg" alt="Cloud dashboard for the plant monitoring system showing live sensor readings" data-par="0.14" data-par-scale="0.05" data-skew loading="lazy" width="1600" height="900">
       </div>
       <div class="media-badge"><b>14% → 92%</b><span>real-world accuracy</span></div>
     </div>
@@ -205,7 +205,7 @@
   <!-- P2 -->
   <article class="proj flip reveal" id="p-sre">
     <div class="proj-media">
-      <div class="media-frame art art-agent">
+      <div class="media-frame tilt art art-agent">
         <svg viewBox="0 0 520 320" aria-hidden="true" data-par="0.10">
           <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22e8ff"/><stop offset="1" stop-color="#8b5cff"/></linearGradient></defs>
           <g fill="none" stroke="#1d2838"><path d="M0 80h520M0 160h520M0 240h520M130 0v320M260 0v320M390 0v320"/></g>
@@ -243,20 +243,18 @@
   <!-- P3 -->
   <article class="proj reveal" id="p-vsp">
     <div class="proj-media">
-      <div class="media-frame art art-term">
-        <div class="term" data-par="0.10">
-          <div class="term-bar"><i></i><i></i><i></i><span>virtual-science-park</span></div>
-          <pre><code><span class="c-p">❯</span> agents run --nightly
-<span class="c-m">[profiler]</span>  42 companies profiled
-<span class="c-m">[scout:eu]</span>  18 calls · 6 past deadline <span class="c-r">dropped</span>
-<span class="c-m">[scout:vin]</span> 11 calls matched
-<span class="c-m">[matcher]</span>   137 pairs ranked
-<span class="c-m">[guard]</span>     3 claims blocked <span class="c-r">"guaranteed"</span>
-<span class="c-g">✓</span> quotes verified on source page
-<span class="c-p">❯</span> <span class="cur"></span></code></pre>
-        </div>
+      <div class="shots tilt">
+        <figure class="shot shot-a" data-par="0.05">
+          <img src="assets/vsp-signin.jpg" alt="Virtual Science Park sign-in screen with an orbital diagram of the park's sectors" loading="lazy" width="1280" height="654">
+        </figure>
+        <figure class="shot shot-b" data-par="0.14">
+          <img src="assets/vsp-graph.jpg" alt="Knowledge graph linking 45 member companies to 25 technology and sector topics" loading="lazy" width="1280" height="649">
+        </figure>
+        <figure class="shot shot-c" data-par="0.24">
+          <img src="assets/vsp-dashboard.jpg" alt="Member dashboard showing a company digest, opportunity counts and a what-changed feed" loading="lazy" width="1280" height="652">
+        </figure>
       </div>
-      <div class="media-badge"><b>4 agents</b><span>rule-checked</span></div>
+      <div class="media-badge"><b>Top 10</b><span>BUILD 2026</span></div>
     </div>
     <div class="proj-body">
       <p class="proj-tag">Nov 2026 · BUILD Hackathon · Blue Science Park challenge</p>
@@ -274,10 +272,31 @@
     </div>
   </article>
 
+  <!-- hackathon moment -->
+  <section class="moment" aria-label="BUILD Hackathon 2026">
+    <div class="wrap">
+      <p class="label reveal">BUILD Hackathon 2026 · Blue Science Park</p>
+      <h3 class="moment-h reveal" data-par="0.03">Top 10 — built, tested<br>and pitched on stage.</h3>
+      <p class="moment-copy reveal">Two days with a team of three, from an empty repo to a working
+         multi-agent product and a pitch in front of the room.</p>
+    </div>
+    <div class="moment-strip" aria-hidden="false">
+      <figure class="ph ph-1" data-par="0.13" data-skew>
+        <img src="assets/build-team.jpg" alt="The team working on the Virtual Science Park prototype during the hackathon" loading="lazy" width="1280" height="705">
+      </figure>
+      <figure class="ph ph-2" data-par="0.30" data-skew>
+        <img src="assets/build-stage.jpg" alt="The BUILD hackathon stage on day two" loading="lazy" width="480" height="853">
+      </figure>
+      <figure class="ph ph-3" data-par="0.19" data-skew>
+        <img src="assets/build-pitch.jpg" alt="Pitching the Virtual Science Park prototype on stage" loading="lazy" width="1280" height="719">
+      </figure>
+    </div>
+  </section>
+
   <!-- P4 -->
   <article class="proj flip reveal" id="p-companion">
     <div class="proj-media">
-      <div class="media-frame art art-mem">
+      <div class="media-frame tilt art art-mem">
         <svg viewBox="0 0 520 320" aria-hidden="true" data-par="0.10">
           <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#22e8ff"/><stop offset="1" stop-color="#8b5cff"/></linearGradient></defs>
           <g class="mem-rings" fill="none" stroke="url(#g2)" opacity=".5">
@@ -357,6 +376,14 @@
         <p class="tl-org">Blekinge Institute of Technology · Sweden</p>
         <p>Selected courses: Machine Learning (A), Decision Support Systems (A),
            Deep Machine Learning (B), Advanced Machine Learning.</p>
+      </article>
+
+      <article class="tl-item reveal">
+        <p class="tl-date">Nov 2026</p>
+        <h3>BUILD Hackathon — Top 10</h3>
+        <p class="tl-org">Blue Science Park challenge · Karlskrona</p>
+        <p>Built and pitched Virtual Science Park, a multi-agent matching app for the park's
+           member companies, placing in the top 10.</p>
       </article>
 
       <article class="tl-item reveal">
