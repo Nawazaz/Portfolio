@@ -95,7 +95,7 @@
 
   <!-- parallax core -->
   <div class="core" data-par="0.22" aria-hidden="true">
-    <div class="ring r1"></div>
+    <div class="ring r1" data-fx="spin" data-spin="0.07"></div>
     <div class="ring r2"></div>
     <div class="ring r3"></div>
     <div class="core-dot">
@@ -139,7 +139,7 @@
   <div class="wrap about-grid">
     <div class="about-head">
       <p class="label reveal">01 — Approach</p>
-      <h2 class="reveal" data-par="0.04">The interesting part<br>is after the benchmark.</h2>
+      <h2 data-fx="focus">The interesting part<br>is after the benchmark.</h2>
     </div>
     <div class="about-body">
       <p class="reveal">
@@ -171,7 +171,7 @@
   <div class="wrap">
     <header class="sec-head">
       <p class="label reveal">02 — Selected work</p>
-      <h2 class="reveal" data-par="0.03">Projects</h2>
+      <h2 data-fx="focus">Projects</h2>
     </header>
   </div>
 
@@ -240,35 +240,46 @@
     </div>
   </article>
 
-  <!-- P3 -->
-  <article class="proj reveal" id="p-vsp">
-    <div class="proj-media">
-      <div class="shots tilt">
-        <figure class="shot shot-a" data-par="0.05">
-          <img src="assets/vsp-signin.jpg" alt="Virtual Science Park sign-in screen with an orbital diagram of the park's sectors" loading="lazy" width="1280" height="654">
-        </figure>
-        <figure class="shot shot-b" data-par="0.14">
-          <img src="assets/vsp-graph.jpg" alt="Knowledge graph linking 45 member companies to 25 technology and sector topics" loading="lazy" width="1280" height="649">
-        </figure>
-        <figure class="shot shot-c" data-par="0.24">
-          <img src="assets/vsp-dashboard.jpg" alt="Member dashboard showing a company digest, opportunity counts and a what-changed feed" loading="lazy" width="1280" height="652">
-        </figure>
+  <!-- P3 — full-width feature -->
+  <article class="proj feature" id="p-vsp">
+    <div class="wrap">
+      <div class="feature-top">
+        <div>
+          <p class="proj-tag">Nov 2026 · BUILD Hackathon · Blue Science Park challenge</p>
+          <h3 data-fx="focus" data-blur="10">Virtual Science Park</h3>
+        </div>
+        <div class="feature-badge"><b>Top 10</b><span>BUILD 2026</span></div>
       </div>
-      <div class="media-badge"><b>Top 10</b><span>BUILD 2026</span></div>
+      <p class="feature-lead reveal">A multi-agent app that profiles member companies from public
+         evidence and matches them to funding, events, testbeds and partners, refreshed nightly.</p>
     </div>
-    <div class="proj-body">
-      <p class="proj-tag">Nov 2026 · BUILD Hackathon · Blue Science Park challenge</p>
-      <h3>Virtual Science Park</h3>
-      <p>A multi-agent app that profiles member companies from public evidence and matches
-         them to funding, events, testbeds and partners, refreshed nightly.</p>
-      <ul class="bullets">
+
+    <div class="shots-row">
+      <figure class="shot" data-fx="assemble" data-from="-170,90,-7">
+        <img src="assets/vsp-signin.jpg" alt="Virtual Science Park sign-in screen with an orbital diagram of the park's sectors" loading="lazy" width="1280" height="654">
+        <figcaption>Sign in</figcaption>
+      </figure>
+      <figure class="shot" data-fx="assemble" data-from="0,150,0">
+        <img src="assets/vsp-dashboard.jpg" alt="Member dashboard showing a company digest, opportunity counts and a what-changed feed" loading="lazy" width="1280" height="652">
+        <figcaption>Member digest</figcaption>
+      </figure>
+      <figure class="shot" data-fx="assemble" data-from="170,90,7">
+        <img src="assets/vsp-graph.jpg" alt="Knowledge graph linking 45 member companies to 25 technology and sector topics" loading="lazy" width="1280" height="649">
+        <figcaption>Knowledge graph</figcaption>
+      </figure>
+    </div>
+
+    <div class="wrap feature-cols">
+      <ul class="bullets reveal">
         <li>Four LLM agents — Profiler, Scouts, Matcher and Guard — pulling from Vinnova and
             the EU Funding &amp; Tenders portal.</li>
         <li>Paired every agent with tested rule-based checks: quotes must exist on the source
             page, past deadlines are removed, and "eligible" or "guaranteed" claims are blocked.</li>
         <li>Built a local variant that runs entirely on Ollama.</li>
       </ul>
-      <ul class="chips"><li>TypeScript</li><li>React</li><li>Supabase</li><li>Vitest</li><li>Ollama</li><li>Multi-agent</li></ul>
+      <div class="reveal">
+        <ul class="chips"><li>TypeScript</li><li>React</li><li>Supabase</li><li>Vitest</li><li>Ollama</li><li>Multi-agent</li></ul>
+      </div>
     </div>
   </article>
 
@@ -276,19 +287,19 @@
   <section class="moment" aria-label="BUILD Hackathon 2026">
     <div class="wrap">
       <p class="label reveal">BUILD Hackathon 2026 · Blue Science Park</p>
-      <h3 class="moment-h reveal" data-par="0.03">Top 10 — built, tested<br>and pitched on stage.</h3>
+      <h3 class="moment-h" data-fx="focus">Top 10 — built, tested<br>and pitched on stage.</h3>
       <p class="moment-copy reveal">Two days with a team of three, from an empty repo to a working
          multi-agent product and a pitch in front of the room.</p>
     </div>
     <div class="moment-strip" aria-hidden="false">
-      <figure class="ph ph-1" data-par="0.13" data-skew>
-        <img src="assets/build-team.jpg" alt="The team working on the Virtual Science Park prototype during the hackathon" loading="lazy" width="1280" height="705">
+      <figure class="ph ph-1" data-fx="assemble" data-from="-130,80,-4">
+        <img data-par="0.09" src="assets/build-team.jpg" alt="The team working on the Virtual Science Park prototype during the hackathon" loading="lazy" width="1280" height="705">
       </figure>
-      <figure class="ph ph-2" data-par="0.30" data-skew>
-        <img src="assets/build-stage.jpg" alt="The BUILD hackathon stage on day two" loading="lazy" width="480" height="853">
+      <figure class="ph ph-2" data-fx="assemble" data-from="0,150,0">
+        <img data-par="0.09" src="assets/build-stage.jpg" alt="The BUILD hackathon stage on day two" loading="lazy" width="480" height="853">
       </figure>
-      <figure class="ph ph-3" data-par="0.19" data-skew>
-        <img src="assets/build-pitch.jpg" alt="Pitching the Virtual Science Park prototype on stage" loading="lazy" width="1280" height="719">
+      <figure class="ph ph-3" data-fx="assemble" data-from="130,80,4">
+        <img data-par="0.09" src="assets/build-pitch.jpg" alt="Pitching the Virtual Science Park prototype on stage" loading="lazy" width="1280" height="719">
       </figure>
     </div>
   </section>
@@ -364,7 +375,7 @@
   <div class="wrap">
     <header class="sec-head">
       <p class="label reveal">03 — Journey</p>
-      <h2 class="reveal" data-par="0.03">Experience &amp; education</h2>
+      <h2 data-fx="focus">Experience &amp; education</h2>
     </header>
 
     <div class="tl">
@@ -423,7 +434,7 @@
   <div class="wrap">
     <header class="sec-head">
       <p class="label reveal">04 — Toolkit</p>
-      <h2 class="reveal" data-par="0.03">Stack</h2>
+      <h2 data-fx="focus">Stack</h2>
     </header>
     <div class="stack-grid">
       <div class="st reveal"><h3>Languages</h3><ul class="chips"><li>Python</li><li>SQL</li><li>TypeScript</li><li>JavaScript</li><li>Java</li><li>C++</li><li>C</li><li>Kotlin</li></ul></div>
@@ -446,7 +457,7 @@
 <section class="contact" id="contact">
   <div class="wrap">
     <p class="label reveal">05 — Contact</p>
-    <h2 class="reveal big" data-par="0.05">Let's build<br>something that ships.</h2>
+    <h2 class="big" data-fx="focus" data-blur="16">Let's build<br>something that ships.</h2>
     <p class="contact-copy reveal">
       I'm looking for a <strong>2027 master thesis</strong> or a graduate role in AI/ML
       engineering. If you're working on computer vision, LLM systems or anything that has to
