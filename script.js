@@ -14,6 +14,10 @@
 (() => {
   "use strict";
 
+  // Only hide fx start-states once this script is known to be running. If it fails
+  // to load, the page renders fully visible instead of blank.
+  document.documentElement.classList.add("js");
+
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const fine = window.matchMedia("(pointer:fine)").matches;
   const $ = (s, r = document) => r.querySelector(s);
@@ -101,6 +105,22 @@
   // pointer-tilt frames
   const tilts = $$(".tilt").map(el => ({ el, rx: 0, ry: 0, trx: 0, try_: 0, hover: false }));
 
+  /* scroll-progress effects:
+       data-fx="assemble"  pieces fly in from data-from="x,y,rot" and lock into place
+       data-fx="focus"     blurred + dim, sharpening as it rises into view
+       data-fx="spin"      rotates continuously with page scroll
+     Progress runs 0 → 1 as the element crosses the lower half of the viewport. */
+  const fx = $$("[data-fx]").map(el => {
+    const f = (el.dataset.from || "0,0,0").split(",").map(Number);
+    return {
+      el, type: el.dataset.fx,
+      fx: f[0] || 0, fy: f[1] || 0, fr: f[2] || 0,
+      blur: parseFloat(el.dataset.blur || "12"),
+      spin: parseFloat(el.dataset.spin || "0.06"),
+      cur: 0,
+    };
+  });
+
   let vh = window.innerHeight;
   let wide = window.innerWidth >= 760;
   let lastY = window.scrollY || 0;
@@ -116,43 +136,76 @@
   function loop() {
     const y = window.scrollY || window.pageYOffset;
 
-    // ---- damped scroll velocity (drives the skew)
-    const raw = clamp(y - lastY, -90, 90);
+    const dy = clamp(y - lastY, -90, 90);
     lastY = y;
-    vel += (raw - vel) * 0.18;
+    vel += (dy - vel) * 0.18;
     if (Math.abs(vel) < 0.02) vel = 0;
     const skew = reduced ? 0 : clamp(vel * 0.03, -2.2, 2.2);
 
-    // ---- nav + progress
+    let moving = Math.abs(vel) > 0.05;
+
+    /* ============ READ PHASE ============
+       Every layout read happens here, before any style write. Mixing the two
+       forces a synchronous reflow per element and collapses the frame rate. */
+    const docH = document.documentElement.scrollHeight;
+    const atBottom = (docH - vh - y) <= 2;
+
+    let heroP = 0;
+    if (!reduced && heroInner && hero) {
+      const hb = hero.getBoundingClientRect();
+      heroP = clamp(-hb.top / Math.max(1, hb.height * 0.85), 0, 1);
+    }
+
+    if (!reduced && wide) {
+      for (const it of items) {
+        const r = it.el.getBoundingClientRect();
+        it._top = r.top - it.cur;               // strip the transform we applied
+        it._h = r.height;
+        it._skip = (r.bottom < -320 || it._top > vh + 320);
+      }
+    }
+
+    if (!reduced) {
+      for (const f of fx) {
+        const r = f.el.getBoundingClientRect();
+        f._top = r.top;
+        f._past = r.bottom < -400;
+        f._skip = r.top > vh + 400;
+      }
+    }
+
+    let tlP = -1;
+    if (!reduced && tl && tlFill) {
+      const r = tl.getBoundingClientRect();
+      tlP = clamp((vh * 0.72 - r.top) / r.height, 0, 1);
+    }
+
+    let current = "";
+    for (const s of sections) {
+      const r = s.getBoundingClientRect();
+      if (r.top <= vh * 0.35 && r.bottom >= vh * 0.35) { current = s.id; break; }
+    }
+
+    /* ============ WRITE PHASE ============ */
     if (nav) nav.classList.toggle("stuck", y > 20);
     if (bar) {
-      const max = document.documentElement.scrollHeight - vh;
+      const max = docH - vh;
       bar.style.width = (max > 0 ? Math.min(1, y / max) * 100 : 0) + "%";
     }
 
-    let moving = Math.abs(vel) > 0.05;
-
     if (!reduced) {
-      // ---- hero depth exit
-      if (heroInner && hero) {
-        const hb = hero.getBoundingClientRect();
-        const p = clamp(-hb.top / Math.max(1, hb.height * 0.85), 0, 1);
-        heroInner.style.transform = `translate3d(0, ${(p * -90).toFixed(1)}px, 0)`;
-        heroInner.style.opacity = String(1 - p * 0.9);
+      if (heroInner) {
+        heroInner.style.transform = `translate3d(0, ${(heroP * -90).toFixed(1)}px, 0)`;
+        heroInner.style.opacity = String(1 - heroP * 0.9);
       }
 
-      // ---- parallax layers (damped)
       if (wide) {
         for (const it of items) {
-          const r = it.el.getBoundingClientRect();
-          // subtract the transform we already applied, to get the natural position
-          const top = r.top - it.cur;
-          if (r.bottom < -320 || top > vh + 320) continue;
-          const mid = top + r.height / 2 - vh / 2;
+          if (it._skip) continue;
+          const mid = it._top + it._h / 2 - vh / 2;
           it.tgt = -mid * it.k;
-
           const d = it.tgt - it.cur;
-          it.cur += d * 0.11;                       // damping → lag and settle
+          it.cur += d * 0.11;
           if (Math.abs(d) > 0.08) moving = true;
 
           let tf = `translate3d(0, ${it.cur.toFixed(2)}px, 0)`;
@@ -165,34 +218,62 @@
         }
       }
 
-      // ---- timeline fill
-      if (tl && tlFill) {
-        const r = tl.getBoundingClientRect();
-        const p = clamp((vh * 0.72 - r.top) / r.height, 0, 1);
-        tlFill.style.height = (p * 100) + "%";
+      for (const f of fx) {
+        if (f.type === "spin") {
+          if (!f._skip && !f._past) f.el.style.transform = `rotate(${(y * f.spin).toFixed(2)}deg)`;
+          continue;
+        }
+        if (f._past) {                           // scrolled past → force settled
+          if (f.cur < 0.999) {
+            f.cur = 1;
+            f.el.style.transform = "none";
+            f.el.style.filter = "none";
+            f.el.style.opacity = "1";
+          }
+          continue;
+        }
+        if (f._skip) continue;
+
+        // finishes while the element is still low in the viewport, so items near the
+        // end of the page (which can never scroll higher) still complete
+        const prog = (atBottom && f._top < vh)
+          ? 1
+          : clamp((vh * 0.98 - f._top) / (vh * 0.36), 0, 1);
+        const e = 1 - Math.pow(1 - prog, 3);
+        const d = e - f.cur;
+        f.cur += d * 0.14;
+        if (Math.abs(d) > 0.002) moving = true;
+        if (e > 0.999 && f.cur > 0.97) f.cur = 1;         // snap shut
+        const k = 1 - f.cur;
+
+        if (f.type === "assemble") {
+          f.el.style.transform =
+            `translate3d(${(f.fx * k).toFixed(1)}px, ${(f.fy * k).toFixed(1)}px, 0) ` +
+            `rotate(${(f.fr * k).toFixed(2)}deg) scale(${(1 - k * 0.06).toFixed(4)})`;
+          f.el.style.opacity = String(clamp(0.1 + f.cur * 1.2, 0, 1));
+        } else {
+          const bl = k * f.blur;
+          f.el.style.filter = bl > 0.2 ? `blur(${bl.toFixed(2)}px)` : "none";
+          f.el.style.opacity = String(clamp(0.25 + f.cur * 0.85, 0, 1));
+          f.el.style.transform = k > 0.002 ? `translate3d(0, ${(k * 26).toFixed(1)}px, 0)` : "none";
+        }
       }
 
-      // ---- pointer tilt (damped)
+      if (tlP >= 0) tlFill.style.height = (tlP * 100) + "%";
+
       if (wide && fine) {
         for (const t of tilts) {
-          const dx = t.trx - t.rx, dy = t.try_ - t.ry;
-          t.rx += dx * 0.12; t.ry += dy * 0.12;
-          if (Math.abs(dx) > 0.02 || Math.abs(dy) > 0.02) moving = true;
+          const dx = t.trx - t.rx, dy2 = t.try_ - t.ry;
+          t.rx += dx * 0.12; t.ry += dy2 * 0.12;
+          if (Math.abs(dx) > 0.02 || Math.abs(dy2) > 0.02) moving = true;
           t.el.style.transform =
             `perspective(1100px) rotateX(${t.rx.toFixed(2)}deg) rotateY(${t.ry.toFixed(2)}deg)`;
         }
       }
     }
 
-    // ---- active nav link
-    let current = "";
-    for (const s of sections) {
-      const r = s.getBoundingClientRect();
-      if (r.top <= vh * 0.35 && r.bottom >= vh * 0.35) { current = s.id; break; }
-    }
     navLinks.forEach((a, id) => a.classList.toggle("active", id === current));
 
-    // ---- sleep when settled
     idleFrames = moving ? 0 : idleFrames + 1;
     if (idleFrames > 45) { running = false; return; }
     requestAnimationFrame(loop);
@@ -207,6 +288,7 @@
       if (!wide) {
         items.forEach(it => { it.el.style.transform = ""; it.cur = 0; it.tgt = 0; });
         tilts.forEach(t => { t.el.style.transform = ""; t.rx = t.ry = t.trx = t.try_ = 0; });
+        fx.forEach(f => { f.el.style.transform = ""; f.el.style.filter = ""; f.el.style.opacity = ""; f.cur = 1; });
       }
     }
     wake();
@@ -287,6 +369,11 @@
     let rt;
     window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(build, 180); }, { passive: true });
   }
+
+  // belt and braces: if the engine is disabled, make sure nothing stays hidden
+  if (reduced) fx.forEach(f => {
+    f.el.style.transform = "none"; f.el.style.filter = "none"; f.el.style.opacity = "1"; f.cur = 1;
+  });
 
   wake();
 })();
